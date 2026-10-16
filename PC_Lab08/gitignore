@@ -1,0 +1,14 @@
+# compiled programs
+*.o
+ex0_HelloMPI
+ex0_message1
+ex0_message2
+ex2_sum
+ex3_pi
+ex5_mismatch
+ex5_message2_bsend
+ex6_any
+ex6_fixed
+ex7_bsend
+# Slurm output (copy the numbers into the results CSVs instead)
+*.out

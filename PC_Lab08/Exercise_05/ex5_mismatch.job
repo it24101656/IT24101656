@@ -1,0 +1,18 @@
+#!/bin/bash
+# Exercise 5.1 - this program HANGS on purpose; short time limit so it gets killed
+# Override task counts from the command line, e.g.  sbatch --tasks-per-node=8 ex5_mismatch.job
+#SBATCH --nodes=1
+#SBATCH --tasks-per-node=4
+#SBATCH --job-name=ex5_mismatch
+#SBATCH --time=00:00:30
+#SBATCH --output=%x-%j.out
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=standard
+#SBATCH --account=ta035
+#SBATCH --qos=short
+#SBATCH --reservation=shortqos
+
+module --silent load epcc-job-env
+export OMP_NUM_THREADS=1
+
+srun --distribution=block:block --hint=nomultithread ./ex5_mismatch
